@@ -163,7 +163,237 @@ footer .fcol a:hover{color:var(--gold2);transform:translateX(4px)}
 /* payment page polish */
 .qrbox img{border:2px solid var(--gold2);border-radius:18px;box-shadow:0 18px 34px -20px #5b1a8b99}
 @media (prefers-reduced-motion:reduce){.hx h1 span i{transform:none}.mq>div{animation:none}.nut,.glow,.ring,.pbadge{animation:none}}
-</style><meta charset=UTF-8><meta name=viewport content="width=device-width, initial-scale=1.0"><title>De-Rich Foodhub | Tigernut Drink</title><meta name=description content="De-Rich Foodhub: Pure. Natural. Nourishing. Tigernut Drink bundles."><link rel=preconnect href=https://fonts.googleapis.com><link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&amp;family=Manrope:wght@400;600;800&amp;family=Poppins:wght@600;700;800&amp;display=swap" rel=stylesheet><script>try{var e=localStorage.getItem("dr-theme")||(matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light");document.documentElement.dataset.theme=e}catch(e){}</script><body>
+</style><meta charset=UTF-8><meta name=viewport content="width=device-width, initial-scale=1.0"><style id=drf-intro-css>
+/* ===== De-Rich intro (GIF) ===== */
+.drf-intro{display:none}
+html.drf-lock,html.drf-lock body{overflow:hidden!important}
+html.drf-lock #root{visibility:hidden}
+html.drf-lock .hx *{animation-play-state:paused!important}
+html.drf-lock .drf-intro{display:grid}
+.drf-intro{position:fixed;inset:0;z-index:2147483000;place-items:center;overflow:hidden;color:#fff;
+  background:radial-gradient(ellipse 80% 65% at 50% 46%,#3a0b57 0%,#230739 50%,#12021c 100%);
+  touch-action:none;overscroll-behavior:none;opacity:1;
+  transition:opacity .95s cubic-bezier(.4,0,.2,1),visibility 0s linear .95s}
+.drf-glow{position:absolute;left:50%;top:46%;width:min(120vw,900px);aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;
+  background:radial-gradient(circle,#ffc93326 0%,#f28a1c14 38%,#f28a1c00 68%);opacity:0;transition:opacity 1.2s ease}
+.drf-intro.on .drf-glow{opacity:1;animation:drf-breathe 4.5s ease-in-out infinite}
+.drf-load{position:absolute;width:34px;height:34px;border-radius:50%;border:3px solid #ffffff26;border-top-color:#ffc933;animation:drf-spin .8s linear infinite;transition:opacity .3s}
+.drf-intro.on .drf-load{opacity:0}
+.drf-stage{position:relative;z-index:2;width:min(92vw,calc(78vh*.883),600px);aspect-ratio:385/436;opacity:0;transform:scale(.97);
+  transition:opacity .7s ease,transform 1s cubic-bezier(.2,.7,.2,1),filter .8s ease}
+@supports (height:1svh){.drf-stage{width:min(92vw,calc(78svh*.883),600px)}}
+.drf-intro.on .drf-stage{opacity:1;transform:none}
+.drf-stage img{display:block;width:100%;height:100%;object-fit:cover;user-select:none;-webkit-user-drag:none;pointer-events:none;
+  -webkit-mask-image:linear-gradient(to right,transparent,#000 9%,#000 91%,transparent),linear-gradient(to bottom,transparent,#000 8%,#000 92%,transparent);
+  -webkit-mask-composite:source-in;
+  mask-image:linear-gradient(to right,transparent,#000 9%,#000 91%,transparent),linear-gradient(to bottom,transparent,#000 8%,#000 92%,transparent);
+  mask-composite:intersect}
+.drf-brand{position:absolute;left:0;right:0;bottom:max(20px,env(safe-area-inset-bottom));margin:0;text-align:center;
+  font-family:var(--hf,Poppins),system-ui,sans-serif;opacity:0;transform:translateY(8px);transition:opacity .9s ease .5s,transform .9s ease .5s}
+.drf-intro.on .drf-brand{opacity:1;transform:none}
+.drf-brand b{display:block;font-size:.74rem;font-weight:800;letter-spacing:.28em;color:#ffe08a}
+.drf-brand span{display:block;margin-top:5px;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:#d9c3ea}
+.drf-skip{position:absolute;z-index:3;top:max(14px,env(safe-area-inset-top));right:max(14px,env(safe-area-inset-right));
+  font-family:var(--hf,Poppins),system-ui,sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:#ffffffd9;background:#ffffff14;border:1px solid #ffffff38;border-radius:99px;padding:9px 16px;min-height:38px;cursor:pointer;
+  backdrop-filter:blur(6px);opacity:0;pointer-events:none;transition:opacity .6s ease .9s,background .2s}
+.drf-intro.on .drf-skip{opacity:1;pointer-events:auto}
+.drf-skip:hover{background:#ffffff2b}
+.drf-skip:focus-visible{outline:2px solid #ffc933;outline-offset:3px}
+.drf-bar{position:absolute;left:0;right:0;bottom:0;height:3px;background:#ffffff14}
+.drf-bar i{display:block;height:100%;transform:scaleX(0);transform-origin:left;background:linear-gradient(90deg,#f28a1c,#ffc933)}
+.drf-intro.on .drf-bar i{animation:drf-prog var(--drf-dur,9s) linear forwards}
+.drf-intro.out{opacity:0;visibility:hidden;pointer-events:none}
+.drf-intro.out .drf-stage{opacity:0;transform:scale(1.08);filter:blur(6px)}
+.drf-intro.out .drf-brand,.drf-intro.out .drf-skip{opacity:0}
+@keyframes drf-spin{to{transform:rotate(360deg)}}
+@keyframes drf-prog{to{transform:scaleX(1)}}
+@keyframes drf-breathe{50%{transform:translate(-50%,-50%) scale(1.07);opacity:.75}}
+@media (prefers-reduced-motion:reduce){
+  .drf-intro{display:none!important}
+  html.drf-lock,html.drf-lock body{overflow:auto!important}
+  html.drf-lock #root{visibility:visible!important}
+}
+</style>
+<script id=drf-intro-js>
+(function () {
+  var D = document, R = D.documentElement;
+
+  /* ---- settings you can change ---- */
+  var CFG = {
+    src: 'derich-intro.gif',   // the GIF file (keep it next to index.html)
+    fallbackMs: 9000,          // used only if the GIF's own timing cannot be read
+    holdMs: 500,               // pause on the last frame before revealing the site
+    exitMs: 1000,              // length of the reveal transition
+    loadTimeoutMs: 12000,      // give up (show site) if the GIF has not started by then
+    maxMs: 30000,              // absolute safety net: scrolling is always released by then
+    allowSkip: true,           // small "Skip intro" button; set false to remove it
+    oncePerSession: false,     // true = play once per browser tab session (add ?intro to the URL to force it)
+    skipOnDeepLink: true       // links like /#order go straight to the page
+  };
+
+  var st = { done: false, started: false, hid: false, t: [], url: null, el: null, prevRestore: null, binds: [] };
+
+  /* ---- should we play at all? ---- */
+  try {
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var h = location.hash;
+    if (CFG.skipOnDeepLink && h && h !== '#' && h !== '#home') return;
+    if (CFG.oncePerSession && !/[?&]intro(=|&|$)/.test(location.search) && sessionStorage.getItem('drf-intro')) return;
+  } catch (e) {}
+
+  /* ---- scroll lock ---- */
+  function bind(t, type, fn, opt) { t.addEventListener(type, fn, opt); st.binds.push([t, type, fn, opt]); }
+  function stop(e) { if (e.cancelable) e.preventDefault(); }
+  var KEYS = { ' ': 1, Spacebar: 1, PageUp: 1, PageDown: 1, End: 1, Home: 1, ArrowUp: 1, ArrowDown: 1, ArrowLeft: 1, ArrowRight: 1 };
+  function keys(e) {
+    if (!KEYS[e.key]) return;
+    var t = e.target;
+    if (t && t.classList && t.classList.contains('drf-skip')) return; // let Space/Enter press the skip button
+    e.preventDefault();
+  }
+  function snap() { if (window.scrollY || window.scrollX) window.scrollTo(0, 0); }
+  function lock() {
+    R.classList.add('drf-lock');
+    try { if ('scrollRestoration' in history) { st.prevRestore = history.scrollRestoration; history.scrollRestoration = 'manual'; } } catch (e) {}
+    try { window.scrollTo(0, 0); } catch (e) {}
+    bind(window, 'wheel', stop, { passive: false });
+    bind(window, 'touchmove', stop, { passive: false });
+    bind(window, 'keydown', keys, true);
+    bind(window, 'scroll', snap, { passive: true });
+  }
+  function unlock() {
+    R.classList.remove('drf-lock');
+    st.binds.forEach(function (b) { b[0].removeEventListener(b[1], b[2], b[3]); });
+    st.binds = [];
+    try { if (st.prevRestore) history.scrollRestoration = st.prevRestore; } catch (e) {}
+  }
+
+  /* ---- read the GIF: total running time + make it play only once ---- */
+  function analyse(b) {
+    var res = { bytes: b, ms: 0 };
+    try {
+      if (b.length < 14 || b[0] !== 71 || b[1] !== 73 || b[2] !== 70) return res;
+      var p = 13, f = b[10];
+      if (f & 128) p += 3 * (1 << ((f & 7) + 1));
+      var total = 0, pend = 0, cutS = -1, cutE = -1;
+      var skipSub = function () { while (p < b.length && b[p] !== 0) p += b[p] + 1; p++; };
+      while (p < b.length) {
+        var t = b[p];
+        if (t === 59) break;
+        if (t === 33) {                               // extension block
+          var lab = b[p + 1], s = p, loopExt = false;
+          p += 2;
+          if (lab === 249) pend = b[p + 2] | (b[p + 3] << 8);
+          else if (lab === 255 && b[p] === 11) {
+            var id = ''; for (var i = 1; i <= 8; i++) id += String.fromCharCode(b[p + i]);
+            loopExt = (id === 'NETSCAPE' || id === 'ANIMEXTS');
+          }
+          skipSub();
+          if (loopExt) { cutS = s; cutE = p; }
+        } else if (t === 44) {                        // image frame
+          var lf = b[p + 9];
+          p += 10; if (lf & 128) p += 3 * (1 << ((lf & 7) + 1));
+          p++; skipSub();
+          total += (pend < 2 ? 10 : pend) * 10; pend = 0;   // browsers treat 0/1 cs as 10 cs
+        } else return res;
+      }
+      res.ms = total;
+      if (cutS >= 0) {                                // drop the "loop forever" flag -> plays once, stops on last frame
+        var o = new Uint8Array(b.length - (cutE - cutS));
+        o.set(b.subarray(0, cutS), 0); o.set(b.subarray(cutE), cutS);
+        res.bytes = o;
+      }
+    } catch (e) {}
+    return res;
+  }
+  function direct() { return { url: CFG.src, ms: CFG.fallbackMs, blob: false }; }
+  var gifP;
+  try {
+    gifP = fetch(CFG.src).then(function (r) {
+      if (!r.ok) throw new Error('http ' + r.status);
+      return r.arrayBuffer();
+    }).then(function (buf) {
+      var g = analyse(new Uint8Array(buf));
+      return { url: URL.createObjectURL(new Blob([g.bytes], { type: 'image/gif' })), ms: g.ms || CFG.fallbackMs, blob: true };
+    }).catch(direct);                                 // e.g. opened from file:// -> let <img> load it directly
+  } catch (e) { gifP = Promise.resolve(direct()); }
+
+  /* ---- finish: unlock scrolling, reveal the homepage ---- */
+  function finish() {
+    if (st.done) return; st.done = true;
+    st.t.forEach(clearTimeout);
+    try { if (CFG.oncePerSession) sessionStorage.setItem('drf-intro', '1'); } catch (e) {}
+    unlock();
+    var el = st.el;
+    if (!el) return;
+    el.classList.add('out');
+    setTimeout(function () {
+      if (el.parentNode) el.parentNode.removeChild(el);
+      if (st.url) { try { URL.revokeObjectURL(st.url); } catch (e) {} }
+    }, CFG.exitMs + 150);
+  }
+
+  function whenVisible(fn) {
+    if (D.visibilityState !== 'hidden') return fn();
+    D.addEventListener('visibilitychange', function h() {
+      if (D.visibilityState !== 'hidden') { D.removeEventListener('visibilitychange', h); fn(); }
+    });
+  }
+
+  function play(g, stage) {
+    var img = new Image();
+    img.alt = ''; img.decoding = 'async'; img.draggable = false;
+    img.setAttribute('aria-hidden', 'true');
+    img.onerror = finish;                             // browser can't show it -> go straight to the site
+    st.url = g.blob ? g.url : null;
+    var go = function () {
+      whenVisible(function () {
+        if (st.done || st.started) return;
+        st.started = true;
+        stage.appendChild(img);
+        st.el.style.setProperty('--drf-dur', g.ms + 'ms');
+        st.el.classList.add('on');
+        st.t.push(setTimeout(finish, g.ms + CFG.holdMs));
+      });
+    };
+    img.src = g.url;
+    if (img.decode) img.decode().then(go, go); else img.addEventListener('load', go);
+  }
+
+  /* called by the overlay markup at the top of the page */
+  window.__drfMount = function () {
+    try {
+      var el = D.getElementById('drf-intro');
+      if (!el) { finish(); return; }
+      if (st.done) { el.parentNode.removeChild(el); return; }
+      st.el = el;
+      var skip = el.querySelector('.drf-skip');
+      if (skip) { if (CFG.allowSkip) skip.addEventListener('click', finish); else skip.hidden = true; }
+      D.addEventListener('visibilitychange', function () {   // tab left mid-animation -> don't strand the visitor
+        if (D.visibilityState === 'hidden' && st.started) st.hid = true;
+        else if (D.visibilityState === 'visible' && st.hid) finish();
+      });
+      gifP.then(function (g) { if (st.done) { if (g.blob) URL.revokeObjectURL(g.url); return; } play(g, el.querySelector('.drf-stage')); });
+    } catch (e) { finish(); }
+  };
+
+  try {
+    lock();
+    st.t.push(setTimeout(function () { if (!st.started) finish(); }, CFG.loadTimeoutMs));
+    st.t.push(setTimeout(finish, CFG.maxMs));
+  } catch (e) { R.classList.remove('drf-lock'); }
+})();
+</script><title>De-Rich Foodhub | Tigernut Drink</title><meta name=description content="De-Rich Foodhub: Pure. Natural. Nourishing. Tigernut Drink bundles."><link rel=preconnect href=https://fonts.googleapis.com><link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&amp;family=Manrope:wght@400;600;800&amp;family=Poppins:wght@600;700;800&amp;display=swap" rel=stylesheet><script>try{var e=localStorage.getItem("dr-theme")||(matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light");document.documentElement.dataset.theme=e}catch(e){}</script><body>
+<div id=drf-intro class=drf-intro role=dialog aria-modal=true aria-label="De-Rich Foodhub welcome animation">
+  <div class=drf-glow aria-hidden=true></div>
+  <div class=drf-load aria-hidden=true></div>
+  <div class=drf-stage></div>
+  <p class=drf-brand><b>DE-RICH FOODHUB</b><span>Pure. Natural. Nourishing.</span></p>
+  <button type=button class=drf-skip>Skip intro</button>
+  <div class=drf-bar aria-hidden=true><i></i></div>
+</div>
+<script>window.__drfMount&&window.__drfMount()</script>
     <div id=root></div>
     
   
